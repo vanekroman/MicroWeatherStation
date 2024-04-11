@@ -12,8 +12,8 @@ In the development of our IoT project, we have leveraged two technologies that e
 
 ### Block Diagram Solution
 
-[[https://github.com/vanekroman/MicroWeatherStation/blob/main/meteostanica.png|alt=meteostanica]]
 
+![MicroWeatherStation](https://github.com/vanekroman/MicroWeatherStation/blob/main/meteostanica.png)
 
 ### Dependencies
 
