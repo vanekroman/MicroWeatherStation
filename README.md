@@ -37,7 +37,7 @@ command to run if program contains helper info
 
 Contributors names and contact info
 
-  Roman Vaněk [@vanekroman](https://github.com/vanekroman)
+  [@vanekroman](https://github.com/vanekroman)
   Filip Tůma
   Tomáš Calábek
   Matěj Baranyk
