@@ -32,7 +32,7 @@ Contributors names and contact info
 
   [@vanekroman](https://github.com/vanekroman)
   Filip Tůma
-  Tomáš Calábek
+  [Tomáš Calábek](https://github.com/siberiacaly)
   Matěj Baranyk
 
 <a href="https://github.com/vanekroman/MicroWeatherStation/graphs/contributors">
