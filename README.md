@@ -10,8 +10,8 @@ An in-depth paragraph about your project and overview of use.
 
 ### Dependencies
 
-Software is written to run on RP2040 with UF2 bootloader flashed in.
-Hadrware:
+Software is written to run on RP2040 with UF2 bootloader flashed in. Aditionad mudules are used as a
+hardware:
 * [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
 * [Maker Pi Pico Base](https://www.cytron.io/p-maker-pi-pico-base)
 * [Grove - LoRa-E5](https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version)
