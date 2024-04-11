@@ -10,8 +10,7 @@ An in-depth paragraph about your project and overview of use.
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+Software is written to run on RP2040 with UF2 bootloader flashed in.
 
 ### Installing
 
@@ -28,9 +27,9 @@ code blocks for commands
 
 ## Help
 
-Any advise for common problems or issues.
+Can´t run μPython on RP2040?
 ```
-command to run if program contains helper info
+Check the μPython interpreter instalation [UF2 bootloader](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html).
 ```
 
 ## Authors
