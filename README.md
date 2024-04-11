@@ -17,13 +17,9 @@ Software is written to run on RP2040 with UF2 bootloader flashed in.
 * How/where to download your program
 * Any modifications needed to be made to files/folders
 
-### Executing program
+### Suggested toolchain
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+VSCODE + [MicroPico](https://marketplace.visualstudio.com/items?itemName=paulober.pico-w-go) extension.
 
 ## Help
 
