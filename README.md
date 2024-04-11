@@ -11,6 +11,8 @@ An in-depth paragraph about your project and overview of use.
 ### Dependencies
 
 Software is written to run on RP2040 with UF2 bootloader flashed in.
+Hadrware:
+* [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
 
 ### Installing
 
@@ -23,10 +25,8 @@ VSCODE + [MicroPico](https://marketplace.visualstudio.com/items?itemName=paulobe
 
 ## Help
 
-Can´t run μPython on RP2040?
-```
+Can´t run μPython on RP2040?\
 Check the μPython interpreter instalation [UF2 bootloader](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html).
-```
 
 ## Authors
 
