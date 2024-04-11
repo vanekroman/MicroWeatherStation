@@ -26,7 +26,7 @@ VSCODE + [MicroPico](https://marketplace.visualstudio.com/items?itemName=paulobe
 ## Help
 
 Can´t run μPython on RP2040?\
-Check the μPython interpreter instalation [UF2 bootloader](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html).
+  Check the μPython interpreter instalation [UF2 bootloader](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html).
 
 ## Authors
 
