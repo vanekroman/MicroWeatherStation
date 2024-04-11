@@ -42,6 +42,10 @@ Contributors names and contact info
   Tomáš Calábek
   Matěj Baranyk
 
+<a href="https://github.com/vanekroman/MicroWeatherStation/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=vanekroman/MicroWeatherStation" />
+</a>
+
 ## License
 
 This project is licensed under the [MIT] License - see the LICENSE.md file for details
@@ -49,4 +53,5 @@ This project is licensed under the [MIT] License - see the LICENSE.md file for d
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [@DomPizzie](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
+* Readme starting template by [@DomPizzie](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
+* Contributors images made with [contrib.rocks](https://contrib.rocks).
