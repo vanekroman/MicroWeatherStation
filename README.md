@@ -8,7 +8,13 @@ An in-depth paragraph about your project and overview of use.
 
 ## Getting Started
 
-In the development of our IoT project, we have leveraged two technologies that ensure both efficiency and reliability in communication: Constrained Application Protocol (CoAP) and Narrowband IoT (NB-IoT). CoAP is a web transfer protocol optimized for use with constrained nodes and networks, offering a simple but powerful interface for interactions between IoT devices over the Internet. It is designed to easily translate to HTTP for simplified integration with the web while also providing a lightweight communication mechanism that conserves both power and bandwidth. On the other hand, Narrowband IoT (NB-IoT) is a standards-based low power wide area (LPWA) technology developed to enable a wide range of new IoT devices and services. NB-IoT significantly improves the power consumption of user devices, system capacity, and spectrum efficiency, especially in deep coverage. The combination of CoAP and NB-IoT in our project ensures that our IoT solutions are not only energy efficient but also capable of operating in remote or hard-to-reach areas, making it an ideal choice for a wide variety of IoT applications as in our case on old meteorological pole with the height above 10 metres above ground. 
+
+In the development of our IoT project, we have leveraged two technologies that ensure both efficiency and reliability in communication: Message Queuing Telemetry Transport (MQTT) and Narrowband IoT (NB-IoT). MQTT is a lightweight messaging protocol designed for use in situations where bandwidth and power are at a premium, making it an excellent choice for IoT applications. It operates on top of the TCP/IP protocol, allowing for efficient communication between devices in a publish/subscribe model.
+
+On the other hand, Narrowband IoT (NB-IoT) is a standards-based low power wide area (LPWA) technology developed to enable a wide range of new IoT devices and services. NB-IoT significantly improves the power consumption of user devices, system capacity, and spectrum efficiency, especially in deep coverage.
+
+The combination of MQTT and NB-IoT in our project ensures that our IoT solutions are not only energy efficient but also capable of operating in remote or hard-to-reach areas, making it an ideal choice for a wide variety of IoT applications, such as our deployment on old meteorological poles with a height of over 10 meters above ground.
+
 
 ### Block Diagram Solution
 
