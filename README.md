@@ -21,6 +21,15 @@ The combination of MQTT and NB-IoT in our project ensures that our IoT solutions
 
 ![MicroWeatherStation](https://github.com/vanekroman/MicroWeatherStation/blob/main/meteostanice.png)
 
+
+### Calculations
+
+Energy consumed per one message transmission
+$E_{m s g}=\left(P_{t x} \cdot t_{t x}\right)+\left(P_{r x} \cdot t_{r x}\right)+\left(P_{\text {idle }} \cdot t_{\text {idle }}\right)[J]$
+
+Energy consumed per day:
+$\begin{aligned} & E_{\text {day }}=E_{\text {msg }} \cdot N_{M T C P D}+\left(P_S+P_{\text {dev }}\right) \cdot 86400[\mathrm{~J}] \\ & e_{\text {day }}=E_{\text {day }} / 3600[W h]\end{aligned}$
+
 ### Dependencies
 
 Software is written to run on RP2040 with UF2 bootloader flashed in. Aditional mudules are used as a
