@@ -5,16 +5,10 @@ The student project operated within the Bachelor's program Communications system
 ## Description
 
 We have been given a hypothetical scenario involving a micro-weather station with the following specifications:
-- Deployment of the weather station on an old meteorological mast, at least 10 m high
-above the ground.
-- Location of the mast in areas without access to conventional connection methods (forest,
-remote buildings, fields).
+- Deployment of the weather station on an old meteorological mast, at least 10 m high above the ground
+- Location of the mast in areas without access to conventional connection methods (forest, remote buildings, fields)
 - The mast is equipped with a power distribution system, but data lines are not present.
-The weather station will send at defined intervals the values of the given quantities
-(temperature, humidity, wind speed) to a remote server, as well as data and parameters relevant
-for the radio channel of the selected technology.
-
-Translated with DeepL.com (free version)
+The weather station will send at defined intervals the values of the given quantities (temperature, humidity) to a remote server, as well as data and parameters relevant for the radio channel of the selected technology.
 
 ## Getting Started
 
