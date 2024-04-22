@@ -28,7 +28,8 @@ Energy consumed per one message transmission
 $E_{m s g}=\left(P_{t x} \cdot t_{t x}\right)+\left(P_{r x} \cdot t_{r x}\right)+\left(P_{\text {idle }} \cdot t_{\text {idle }}\right)[J]$
 
 Energy consumed per day:
-$\begin{aligned} & E_{\text {day }}=E_{\text {msg }} \cdot N_{M T C P D}+\left(P_S+P_{\text {dev }}\right) \cdot 86400[\mathrm{~J}] \\ & e_{\text {day }}=E_{\text {day }} / 3600[W h]\end{aligned}$
+$\begin{aligned} & E_{\text {day }}=E_{\text {msg }} \cdot N_{M T C P D}+\left(P_S+P_{\text {dev }}\right) \cdot 86400[\mathrm{~J}]$
+$e_{\text {day }}=E_{\text {day }} / 3600[W h]\end{aligned}$
 
 ### Dependencies
 
