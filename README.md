@@ -5,10 +5,17 @@ The student project operated within the Bachelor's program Communications system
 ## Description
 
 We have been given a hypothetical scenario involving a micro-weather station with the following specifications:
-- Deployment of the weather station on an old meteorological mast, at least 10 m high above the ground
+- Deployment of the weather station on an old meteorological tower, at least 10 m high above the ground
 - Location of the mast in areas without access to conventional connection methods (forest, remote buildings, fields)
 - The mast is equipped with a power distribution system, but data lines are not present.
 The weather station will send at defined intervals the values of the given quantities (temperature, humidity) to a remote server, as well as data and parameters relevant for the radio channel of the selected technology.
+
+## Used equipment
+
+- BPC-IOT Board V3
+- BG77
+- Grove AHT20 Temp/humid sensor
+- YF0028AA 4G Adhesive Mount Antenna
 
 ## Getting Started
 
@@ -20,13 +27,13 @@ On the other hand, Narrowband IoT (NB-IoT) is a standards-based low power wide a
 The combination of MQTT and NB-IoT in our project ensures that our IoT solutions are not only energy efficient but also capable of operating in remote or hard-to-reach areas, making it an ideal choice for a wide variety of IoT applications, such as our deployment on old meteorological poles with a height of over 10 meters above ground.
 
 
-### Block Diagram Solution
+## Block Diagram Solution
 
 
 ![MicroWeatherStation](https://github.com/vanekroman/MicroWeatherStation/blob/main/meteostanice.png)
 
 
-### Calculations
+## Calculations
 
 Energy consumed per one message transmission:
 
@@ -58,7 +65,15 @@ Days of battery life:
 
 $D=\frac{C_{\text {bat }}}{I_{\text {avg }}} /(24)$
 
-### Dependencies
+## Used protocol
+
+We have opted to use MQTT network protocol due to it's simplicity. It's lightweigth and reliable. It is ideal for its usage in remote locations, such as our old telephone tower. MQTT's 3-way handshake proves ideal for this situation. MQTT broker isn't vulnerable or insecure with the right configuration, making it ideal to pass data onto clients. This also means that we can have multiple clients subscribing to the same broker due to MQTT's Topic policy.
+
+## Used technology
+
+We decided to use Narrowband-IoT due to it's highly penetrating signal. It's very hard for devices to interfere with the signal. Not only that, this type of technology is widely available and relatively cheap to use, making it ideal for our Weatherstation needs.
+
+## Dependencies
 
 Software is written to run on RP2040 with UF2 bootloader flashed in. Aditional mudules are used as a
 hardware:
