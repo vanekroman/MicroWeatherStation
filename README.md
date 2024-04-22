@@ -42,6 +42,18 @@ Years of battery life:
 
 $Y=D / 365$
 
+Avg. current draw per one message transmission/working cycle:
+
+$I_{m s g}=\left(I_{t x} \cdot \frac{t_{t x}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)+\left(I_{r x} \cdot \frac{t_{r x}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)+\left(I_{\text {idle }} \cdot \frac{t_{\text {idle }}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)[A]$
+
+Avg. current draw per one operational cycle (message + sleep):
+
+$I_{\text {avg }}=\left(I_{\text {msg }} \cdot \frac{t_{t x}+t_{r x}+t_{\text {idle }}}{t_{t x}+t_{r x}+t_{\text {idle }}+t_{\text {sleep }}}\right)+\left(I_{\text {sleep }} \cdot \frac{t_{\text {sleep }}}{t_{t x}+t_{r x}+t_{\text {idle }}+t_{\text {sleep }}}\right)[A]$
+
+Days of battery life:
+
+$D=\frac{C_{\text {bat }}}{I_{\text {avg }}} /(24)$
+
 ### Dependencies
 
 Software is written to run on RP2040 with UF2 bootloader flashed in. Aditional mudules are used as a
