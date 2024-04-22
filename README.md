@@ -4,11 +4,89 @@ The student project operated within the Bachelor's program Communications system
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+We have been given a hypothetical scenario involving a micro-weather station with the following specifications:
+- Deployment of the weather station on an old meteorological tower, at least 10 m high above the ground
+- Location of the mast in areas without access to conventional connection methods (forest, remote buildings, fields)
+- The mast is equipped with a power distribution system, but data lines are not present.
+The weather station will send at defined intervals the values of the given quantities (temperature, humidity) to a remote server, as well as data and parameters relevant for the radio channel of the selected technology.
+
+## Solution design
+WIP
+## Application description
+WIP
+
+## Used equipment
+
+- BPC-IOT Board V3
+- BG77
+- Grove AHT20 Temp/humid sensor
+- YF0028AA 4G Adhesive Mount Antenna
 
 ## Getting Started
 
-### Dependencies
+
+In the development of our IoT project, we have leveraged two technologies that ensure both efficiency and reliability in communication: Message Queuing Telemetry Transport (MQTT) and Narrowband IoT (NB-IoT). MQTT is a lightweight messaging protocol designed for use in situations where bandwidth and power are at a premium, making it an excellent choice for IoT applications. It operates on top of the TCP/IP protocol, allowing for efficient communication between devices in a publish/subscribe model.
+
+On the other hand, Narrowband IoT (NB-IoT) is a standards-based low power wide area (LPWA) technology developed to enable a wide range of new IoT devices and services. NB-IoT significantly improves the power consumption of user devices, system capacity, and spectrum efficiency, especially in deep coverage.
+
+The combination of MQTT and NB-IoT in our project ensures that our IoT solutions are not only energy efficient but also capable of operating in remote or hard-to-reach areas, making it an ideal choice for a wide variety of IoT applications, such as our deployment on old meteorological poles with a height of over 10 meters above ground.
+
+
+## Block Diagram Solution
+
+
+![MicroWeatherStation](https://github.com/vanekroman/MicroWeatherStation/blob/main/meteostanice.png)
+
+
+## Used protocol
+
+We have opted to use MQTT network protocol due to it's simplicity. It's lightweigth and reliable. It is ideal for its usage in remote locations, such as our old telephone tower. MQTT's 3-way handshake proves ideal for this situation. MQTT broker isn't vulnerable or insecure with the right configuration, making it ideal to pass data onto clients. This also means that we can have multiple clients subscribing to the same broker due to MQTT's Topic policy.
+
+## Used technology
+
+We decided to use Narrowband-IoT due to it's highly penetrating signal. It's very hard for devices to interfere with the signal. Not only that, this type of technology is widely available and relatively cheap to use, making it ideal for our Weatherstation needs.
+
+## Power supply
+WIP
+## Calculations
+
+Energy consumed per one message transmission:
+
+$E_{m s g}=\left(P_{t x} \cdot t_{t x}\right)+\left(P_{r x} \cdot t_{r x}\right)+\left(P_{\text {idle }} \cdot t_{\text {idle }}\right)[J]$
+
+Energy consumed per day:
+
+$E_{\text {day }}=E_{\text {msg }} \cdot N_{M T C P D}+\left(P_S+P_{\text {dev }}\right) \cdot 86400[\mathrm{~J}]$
+
+$e_{\text {day }}=E_{\text {day }} / 3600[\mathrm{Wh}]$
+
+Days of battery life:
+
+$D=\left(C_{b a t} \cdot U_{b a t}\right) / e_{\text {day }}$
+
+Years of battery life:
+
+$Y=D / 365$
+
+Avg. current draw per one message transmission/working cycle:
+
+$I_{m s g}=\left(I_{t x} \cdot \frac{t_{t x}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)+\left(I_{r x} \cdot \frac{t_{r x}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)+\left(I_{\text {idle }} \cdot \frac{t_{\text {idle }}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)[A]$
+
+Avg. current draw per one operational cycle (message + sleep):
+
+$I_{\text {avg }}=\left(I_{\text {msg }} \cdot \frac{t_{t x}+t_{r x}+t_{\text {idle }}}{t_{t x}+t_{r x}+t_{\text {idle }}+t_{\text {sleep }}}\right)+\left(I_{\text {sleep }} \cdot \frac{t_{\text {sleep }}}{t_{t x}+t_{r x}+t_{\text {idle }}+t_{\text {sleep }}}\right)[A]$
+
+Days of battery life:
+
+$D=\frac{C_{\text {bat }}}{I_{\text {avg }}} /(24)$
+
+## Demo
+WIP
+
+## Conclusion
+WIP
+
+## Dependencies
 
 Software is written to run on RP2040 with UF2 bootloader flashed in. Aditional mudules are used as a
 hardware:
@@ -32,8 +110,8 @@ Contributors names and contact info
 
   [@vanekroman](https://github.com/vanekroman)
   Filip Tůma
-  Tomáš Calábek
-  Matěj Baranyk
+  [Tomáš Calábek](https://github.com/siberiacaly)
+  [Matěj Baranyk](https://github.com/baranykmatej)
 
 <a href="https://github.com/vanekroman/MicroWeatherStation/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=vanekroman/MicroWeatherStation" />
