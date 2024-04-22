@@ -84,7 +84,7 @@ $D=\frac{C_{\text {bat }}}{I_{\text {avg }}} /(24)$
 WIP
 
 ## Conclusion
-
+WIP
 
 ## Dependencies
 
