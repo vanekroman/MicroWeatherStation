@@ -48,6 +48,10 @@ We decided to use Narrowband-IoT due to it's highly penetrating signal. It's ver
 
 ## Power supply
 WIP
+
+## Current measurement in PSM mode
+![Current measurement](./adc_current.png)
+
 ## Calculations
 
 Energy consumed per one message transmission:
