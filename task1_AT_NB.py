@@ -13,7 +13,6 @@ i2c1 = I2C(1, scl = machine.Pin(15), sda = machine.Pin(14), freq = 400000)
 tmp_sensor = ahtx0.AHT20(i2c1)
 tmp_sensor.initialize()
 
-    
 spoll=uselect.poll()
 spoll.register(sys.stdin,uselect.POLLIN)
 pon_trig = machine.Pin(9,machine.Pin.OUT)
@@ -23,22 +22,46 @@ bg_uart = machine.UART(0, baudrate=115200, tx=machine.Pin(0), rxbuf=256, rx=mach
 bg_uart.write(bytes("AT\r\n","ascii"))
 print(bg_uart.read(10))
 
-module = BG77.BG77(bg_uart, verbose=True, radio=False)
-
+module = BG77.BG77(bg_uart, verbose=True, radio = False)
 time.sleep(3)
 
+def core2_task():
+    sel0 = machine.Pin(2, machine.Pin.OUT)
+    sel1 = machine.Pin(3, machine.Pin.OUT)
+
+    sel0.value(0)
+    sel1.value(1)
+
+    adc = machine.ADC(0)
+
+    uart = machine.UART(1, baudrate=115200, tx=machine.Pin(4), rx=machine.Pin(5))
+    VREF=3.3
+    while True:
+        read_adc = adc.read_u16()
+        '''
+        if read_adc > 65000:
+            sel0.value(1)
+        elif read_adc < 42000:
+            sel0.value(0)
+        '''
+        #print(str(read_adc))
+        uart.write(str(time.ticks_ms())+ "," + str(read_adc)+"\r")
+        time.sleep(0.001)
 
 def waitForCEREG():
     data_out = ""
     while True:
-        data_tmp = bg_uart.read(1)
-        if data_tmp:
-            data_out = data_out + str(data_tmp, 'ascii')
-        if "+CEREG: 5" in data_out:
+        if bg_uart.any():
             time.sleep(.01)
-            data_tmp = bg_uart.read()
-            data_out = data_out + str(data_tmp, 'ascii')
-            return
+            data_tmp = bg_uart.read(1)
+            if data_tmp:
+                data_out = data_out + str(data_tmp, 'ascii')
+            if "+CEREG: 5" in data_out:
+                time.sleep(.01)
+                data_tmp = bg_uart.read()
+                data_out = data_out + str(data_tmp, 'ascii')
+                print(data_out)
+                return
 
 def read1():
     return(sys.stdin.read(1) if spoll.poll(0) else None)
@@ -74,13 +97,17 @@ def sendData_JSON(self, data = {}, topic = "telemetry"):
         raise OSError("BG77 Timeout: Cannot get the response from the device.")
 
 module.setRadio(1)
+time.sleep(1)
 module.setAPN("lpwa.vodafone.iot")
+time.sleep(1)
 module.setOperator(BG77.COPS_MANUAL, BG77.Operator.CZ_VODAFONE)
+time.sleep(1)
 waitForCEREG()
 
 print(" _______________________ \n")
 print("| Micro Weather Station |\n")
 print("|_____connecting ...____|\n")
+second_thread = _thread.start_new_thread(core2_task, ())
 
 # Using lambda to bind the function with the module instance
 module.sendData_JSON = lambda data, topic: sendData_JSON(module, data, topic)
@@ -90,13 +117,10 @@ module.sendData_JSONVARIABLE = lambda variable_name, value, topic: sendData_JSON
 module.__read = lambda exit_condition="OK\r\n", timeout = WAIT_FOR_BG77_RESPONSE_TIMEOUT: __read(module, exit_condition, timeout)
 
 module.sendCommand("AT+QCSCON=1\r\n")
-time.sleep(1)
 module.sendCommand("AT+QMTCFG=\"version\",1,4\r\n")
-time.sleep(1)
-module.sendCommand("AT+QMTOPEN=1,\"147.229.146.40\",1883\r\n")
-time.sleep(1)
-module.sendCommand("AT+QMTCONN=1,\"27a26100-fd78-11ee-b0f6-299dee8b9dbf\",\"gCVn0rC7cOM7rxvYfo5l\",\"\"\r\n")
-time.sleep(1)
+module.sendCommand("AT+QMTOPEN=1,\"147.229.146.40\",1883\r\n", "+QMTOPEN: 1,0", 5)
+module.sendCommand("AT+QMTCONN=1,\"27a26100-fd78-11ee-b0f6-299dee8b9dbf\",\"gCVn0rC7cOM7rxvYfo5l\",\"\"\r\n", "+QMTCONN: 1,0,0", 5)
+
 # module.sendCommand("AT+QCFG=\"nwscanseq\",03,1\r\n")
 # time.sleep(1)
 # send device attributes
@@ -167,21 +191,33 @@ while True:
                 if line == "\r\n":
                     continue
                 print(f"{time.ticks_ms()}: <- {line.strip('\r\n')}")
-    time.sleep(1)
 
-    nwinfo = module.getNWInfo()
-    if nwinfo is not None:
-        data = {
-            "temperature": tmp_sensor.temperature,
-            "humidity": tmp_sensor.relative_humidity,
-            "rssi": nwinfo.RSSI,
-            "rsrp": nwinfo.RSRP,
-            "sinr": nwinfo.SINR,
-            "band": nwinfo.Band,
-            "cellid": nwinfo.CellID,
-            "tac": nwinfo.TAC,
-        }
-        module.sendData_JSON(data, "telemetry")
-        print(nwinfo)
+                if "APP RDY" in line:
+                    print("     WAKEUP!!    ")
+                    if not module.__setCEREG(4):
+                        raise OSError("BG77 Error setting CEREG")
+                    ret = module.sendCommand(f"AT+CEREG?\r\n", "OK\r\n", 10)
 
+                    module.sendCommand("AT+QCSCON=1\r\n")
+                    module.sendCommand("AT+QMTCFG=\"version\",1,4\r\n")
+                    module.sendCommand("AT+QMTOPEN=1,\"147.229.146.40\",1883\r\n", "+QMTOPEN: 1,0", 2)
+                    module.sendCommand("AT+QMTCONN=1,\"27a26100-fd78-11ee-b0f6-299dee8b9dbf\",\"gCVn0rC7cOM7rxvYfo5l\",\"\"\r\n", "+QMTCONN: 1,0,0", 2)
 
+                    if "+CEREG: 4" in ret:
+                        nwinfo = module.getNWInfo()
+                        if nwinfo is not None:
+                            data = {
+                                "temperature": tmp_sensor.temperature,
+                                "humidity": tmp_sensor.relative_humidity,
+                                "rssi": nwinfo.RSSI,
+                                "rsrp": nwinfo.RSRP,
+                                "sinr": nwinfo.SINR,
+                                "band": nwinfo.Band,
+                                "cellid": nwinfo.CellID,
+                                "tac": nwinfo.TAC,
+                            }
+                            time.sleep(1);
+                            module.sendData_JSON(data, "telemetry")
+                            print(nwinfo)
+
+    time.sleep(0.1);
