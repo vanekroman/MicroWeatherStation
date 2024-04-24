@@ -35,7 +35,7 @@ We have opted to use MQTT network protocol due to it's simplicity. It's lightwei
 ![Current measurement](./adc_current.png)
 
 ## Demo
-![Dashboard on Thingsboard](./dashboard.PNG)
+![Dashboard on Thingsboard](./dashboard_v2.PNG)
 [Link on Thingsboard](http://147.229.146.40:48080/)
 
 ## Suggested toolchain
