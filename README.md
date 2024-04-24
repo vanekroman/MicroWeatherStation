@@ -29,7 +29,7 @@ We have opted to use MQTT network protocol due to it's simplicity. It's lightwei
 - YF0028AA 4G Adhesive Mount Antenna
 
 ## Block Diagram Solution
-![MicroWeatherStation](https://github.com/vanekroman/MicroWeatherStation/blob/main/meteostanice.png)
+![MicroWeatherStation](./Block_diagram_v2)
 
 ## Current measurement in PSM mode
 ![Current measurement](./adc_current.png)
