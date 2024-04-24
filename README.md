@@ -34,6 +34,7 @@ We have opted to use MQTT network protocol due to it's simplicity. It's lightwei
 
 ## Demo
 ![Dashboard on Thingsboard](./dashboard.PNG)
+[Link on Thingsboard](http://147.229.146.40:48080/)
 
 ## Suggested toolchain
 VSCODE + [MicroPico](https://marketplace.visualstudio.com/items?itemName=paulober.pico-w-go) extension.
