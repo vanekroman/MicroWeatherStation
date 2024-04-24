@@ -40,57 +40,19 @@ The combination of MQTT and NB-IoT in our project ensures that our IoT solutions
 
 We have opted to use MQTT network protocol due to it's simplicity. It's lightweigth and reliable. It is ideal for its usage in remote locations, such as our old telephone tower. MQTT's 3-way handshake proves ideal for this situation. MQTT broker isn't vulnerable or insecure with the right configuration, making it ideal to pass data onto clients. This also means that we can have multiple clients subscribing to the same broker due to MQTT's Topic policy.
 
-## Power supply
-WIP
-
 ## Current measurement in PSM mode
 ![Current measurement](./adc_current.png)
 
-## Calculations
-
-Energy consumed per one message transmission:
-
-$E_{m s g}=\left(P_{t x} \cdot t_{t x}\right)+\left(P_{r x} \cdot t_{r x}\right)+\left(P_{\text {idle }} \cdot t_{\text {idle }}\right)[J]$
-
-Energy consumed per day:
-
-$E_{\text {day }}=E_{\text {msg }} \cdot N_{M T C P D}+\left(P_S+P_{\text {dev }}\right) \cdot 86400[\mathrm{~J}]$
-
-$e_{\text {day }}=E_{\text {day }} / 3600[\mathrm{Wh}]$
-
-Days of battery life:
-
-$D=\left(C_{b a t} \cdot U_{b a t}\right) / e_{\text {day }}$
-
-Years of battery life:
-
-$Y=D / 365$
-
-Avg. current draw per one message transmission/working cycle:
-
-$I_{m s g}=\left(I_{t x} \cdot \frac{t_{t x}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)+\left(I_{r x} \cdot \frac{t_{r x}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)+\left(I_{\text {idle }} \cdot \frac{t_{\text {idle }}}{t_{t x}+t_{r x}+t_{\text {idle }}}\right)[A]$
-
-Avg. current draw per one operational cycle (message + sleep):
-
-$I_{\text {avg }}=\left(I_{\text {msg }} \cdot \frac{t_{t x}+t_{r x}+t_{\text {idle }}}{t_{t x}+t_{r x}+t_{\text {idle }}+t_{\text {sleep }}}\right)+\left(I_{\text {sleep }} \cdot \frac{t_{\text {sleep }}}{t_{t x}+t_{r x}+t_{\text {idle }}+t_{\text {sleep }}}\right)[A]$
-
-Days of battery life:
-
-$D=\frac{C_{\text {bat }}}{I_{\text {avg }}} /(24)$
 
 ## Demo
 ![Dashboard on Thingsboard](./dashboard.PNG)
 
-## Conclusion
-WIP
 
 ## Dependencies
 
 Software is written to run on RP2040 with UF2 bootloader flashed in. Aditional mudules are used as a
 hardware:
 * [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
-* [Maker Pi Pico Base](https://www.cytron.io/p-maker-pi-pico-base)
-* [Grove - LoRa-E5](https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version)
 * [Grove - AHT20](https://wiki.seeedstudio.com/Grove-AHT20-I2C-Industrial-Grade-Temperature&Humidity-Sensor)
 
 ### Suggested toolchain
