@@ -14,28 +14,17 @@ The project primarily works on the physical layer with LTE CAT-M technology and 
 
 In the project we also use PSM (Power Saving Mode) predefined to Active time of 16 seconds (Timer3324) and Periodic tau for 1 minute (Timer3412), which means the active transmission time is 16 seconds and then the device goes into PSM and is put into sleep for a minute.
 
+## Used protocol
+We have opted to use MQTT network protocol due to it's simplicity. It's lightweigth and reliable. It is ideal for its usage in remote locations, such as our old telephone tower. MQTT's 3-way handshake proves ideal for this situation. MQTT broker isn't vulnerable or insecure with the right configuration, making it ideal to pass data onto clients. This also means that we can have multiple clients subscribing to the same broker due to MQTT's Topic policy.
+
 ## Used equipment
 - BPC-IOT Board V3
 - BG77
 - Grove AHT20 Temp/humid sensor
 - YF0028AA 4G Adhesive Mount Antenna
 
-## Getting Started
-
-
-In the development of our IoT project, we have leveraged two technologies that ensure both efficiency and reliability in communication: Message Queuing Telemetry Transport (MQTT) and Narrowband IoT (NB-IoT). MQTT is a lightweight messaging protocol designed for use in situations where bandwidth and power are at a premium, making it an excellent choice for IoT applications. It operates on top of the TCP/IP protocol, allowing for efficient communication between devices in a publish/subscribe model.
-
-On the other hand, Narrowband IoT (NB-IoT) is a standards-based low power wide area (LPWA) technology developed to enable a wide range of new IoT devices and services. NB-IoT significantly improves the power consumption of user devices, system capacity, and spectrum efficiency, especially in deep coverage.
-
-The combination of MQTT and NB-IoT in our project ensures that our IoT solutions are not only energy efficient but also capable of operating in remote or hard-to-reach areas, making it an ideal choice for a wide variety of IoT applications, such as our deployment on old meteorological poles with a height of over 10 meters above ground.
-
-
 ## Block Diagram Solution
 ![MicroWeatherStation](https://github.com/vanekroman/MicroWeatherStation/blob/main/meteostanice.png)
-
-
-## Used protocol
-We have opted to use MQTT network protocol due to it's simplicity. It's lightweigth and reliable. It is ideal for its usage in remote locations, such as our old telephone tower. MQTT's 3-way handshake proves ideal for this situation. MQTT broker isn't vulnerable or insecure with the right configuration, making it ideal to pass data onto clients. This also means that we can have multiple clients subscribing to the same broker due to MQTT's Topic policy.
 
 ## Current measurement in PSM mode
 ![Current measurement](./adc_current.png)
