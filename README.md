@@ -83,7 +83,7 @@ Days of battery life:
 $D=\frac{C_{\text {bat }}}{I_{\text {avg }}} /(24)$
 
 ## Demo
-![Dashboard on Thingsboard](./dashboard.png)
+![Dashboard on Thingsboard](./dashboard.PNG)
 
 ## Conclusion
 WIP
