@@ -19,8 +19,9 @@ We have opted to use MQTT network protocol due to it's simplicity. It's lightwei
 
 ## Used equipment
 - BPC-IOT Board V3
-- BG77
-- Grove AHT20 Temp/humid sensor
+- [BG77](https://www.quectel.com/product/lte-bg77-cat-m1-nb2)
+- [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
+- [Grove - AHT20](https://wiki.seeedstudio.com/Grove-AHT20-I2C-Industrial-Grade-Temperature&Humidity-Sensor)
 - YF0028AA 4G Adhesive Mount Antenna
 
 ## Block Diagram Solution
@@ -32,13 +33,7 @@ We have opted to use MQTT network protocol due to it's simplicity. It's lightwei
 ## Demo
 ![Dashboard on Thingsboard](./dashboard.PNG)
 
-## Dependencies
-Software is written to run on RP2040 with UF2 bootloader flashed in. Aditional mudules are used as a
-hardware:
-* [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
-* [Grove - AHT20](https://wiki.seeedstudio.com/Grove-AHT20-I2C-Industrial-Grade-Temperature&Humidity-Sensor)
-
-### Suggested toolchain
+## Suggested toolchain
 VSCODE + [MicroPico](https://marketplace.visualstudio.com/items?itemName=paulober.pico-w-go) extension.
 
 ## Help
