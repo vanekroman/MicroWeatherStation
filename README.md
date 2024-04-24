@@ -36,10 +36,6 @@ We have opted to use MQTT network protocol due to it's simplicity. It's lightwei
 ## Suggested toolchain
 VSCODE + [MicroPico](https://marketplace.visualstudio.com/items?itemName=paulober.pico-w-go) extension.
 
-## Help
-Can´t run μPython on RP2040?\
-  Check the μPython interpreter instalation [UF2 bootloader](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html).
-
 ## Authors
 Contributors names and contact info
 
