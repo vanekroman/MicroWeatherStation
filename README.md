@@ -31,7 +31,7 @@ We have opted to use MQTT network protocol due to it's simplicity. It's lightwei
 ## Block Diagram Solution
 ![MicroWeatherStation](./Block_diagram_v2.png)
 
-## Current measurement in PSM mode
+## Current measurement with PSM mode
 ![Current measurement](./adc_current.png)
 
 ## Demo
