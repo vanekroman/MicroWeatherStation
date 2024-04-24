@@ -113,7 +113,7 @@ Can´t run μPython on RP2040?\
 Contributors names and contact info
 
   [@vanekroman](https://github.com/vanekroman)
-  [Filip Tůma(https://github.com/FilipTuma2001]
+  [Filip Tůma](https://github.com/FilipTuma2001)
   [Tomáš Calábek](https://github.com/siberiacaly)
   [Matěj Baranyk](https://github.com/baranykmatej)
 
