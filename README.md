@@ -40,10 +40,6 @@ The combination of MQTT and NB-IoT in our project ensures that our IoT solutions
 
 We have opted to use MQTT network protocol due to it's simplicity. It's lightweigth and reliable. It is ideal for its usage in remote locations, such as our old telephone tower. MQTT's 3-way handshake proves ideal for this situation. MQTT broker isn't vulnerable or insecure with the right configuration, making it ideal to pass data onto clients. This also means that we can have multiple clients subscribing to the same broker due to MQTT's Topic policy.
 
-## Used technology
-
-We decided to use primarily LTE CAT-M and as a backup Narrowband-IoT due to it's highly penetrating signal. It's very hard for devices to interfere with the signal. Not only that, this type of technology is widely available and relatively cheap to use, making it ideal for our Weatherstation needs.
-
 ## Power supply
 WIP
 
